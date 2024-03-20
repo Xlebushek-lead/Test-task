@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Аналітика</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<link rel="stylesheet" href="test.css">
+</head>
+<body>
+  <div class="container">
+    <div class="left-section">
+      <img src="images\test.jpg" alt="Фото" width="70%">
+      <div class="text-column">
+      <h1>Климюк Гліб Мирославович</h1>
+      <h4>Лектор-практик</h4>
+      </div>
+      <div class="additional-block">
+      <div class="additional-text-column">
+      <span class="percentage">100%</span><br> опитувальних хочуть, щоб викладач продовжив викладати
+      </div>
+      <div class="additional-text-column">
+      <span class="percentage">100%</span><br> опитувальних хочуть, що викладач дотримується академічної доброчесності
+      </div>
+      <div class="additional-text-column">
+      <span class="percentage">100%</span><br> опитувальних хочуть, щоб викладачу підвищили зарплатню
+      </div>
+      <div class="additional-text-column">
+      <span class="percentage">8/51</span><br> кількість опитаних
+      </div>
+      </div>
+      </div>
+      <div class="right-section">
+        <div id="septagonal-chart"></div>
+        <div class="chart-column" style="flex-direction: row;">
+          <div class="left-chart">
+            <div id="column-chart-1" class="chart"></div>
+            <div class="diah1">Наскільки зручним та ефективним є дистанційний формат навчання</div>
+          </div>
+          <div class="right-chart">
+            <div id="column-chart-2" class="chart"></div>
+            <div class="diah1">Наскільки зручним та ефективним є дистанційний формат навчання</div>
+          </div>
+        </div>
+      </div>      
+      </div>
+        </div>
+        <div class="footer">
+          <div class="footer-block">
+            <h3>Контакти викладача</h3>
+            <p>Ім'я: Климюк Гліб Мирославович</p>
+            <p>Email: example@example.com</p>
+            <p>Телефон: +123456789</p>
+          </div>
+          <div class="footer-block">
+            <h3>Факультет</h3>
+            <p>Факультет: Інформаційних технологій</p>
+            <p>Кафедра: Програмного забезпечення</p>
+          </div>
+        </div>
+      <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+      <script>
+        var septagonalChartOptions = {
+          chart: {
+            type: 'radialBar',
+            height: 350
+          },
+          series: [80, 50, 30, 40, 100, 20, 70],
+          labels: ['Дотримання РСО', 'Зручність комунікації', 'Комфортність спілкування', 'Пунктуальність', 'Актуальність матеріалу', 'Достатність навчального матеріалу', 'Відповідність лекцій практикам']
+        };
+      
+        // Запускаємо графік семикутників
+        var septagonalChart = new ApexCharts(document.querySelector("#septagonal-chart"), septagonalChartOptions);
+        septagonalChart.render();
+      
+        // Графік стовпчиків 1
+        var columnChartOptions1 = {
+          chart: {
+            type: 'bar',
+            height: 200
+          },
+          series: [{
+            name: 'Кількість голосів',
+            data: [3,10,20,40,51] // Змінені дані про кількість голосів
+          }],
+          xaxis: {
+            categories: ['1 бал', '2 бали', '3 бали', '4 бали', '5 балів']
+          }
+        };
+      
+        // Запускаємо графік стовпчиків 1
+        var columnChart1 = new ApexCharts(document.querySelector("#column-chart-1"), columnChartOptions1);
+        columnChart1.render();
+
+
+        // Графік стовпчиків 2
+        var columnChartOptions2 = {
+          chart: {
+            type: 'bar',
+            height: 200
+          },
+          series: [{
+            name: 'Кількість голосів',
+            data: [3,10,20,40,51] // Змінені дані про кількість голосів
+          }],
+          xaxis: {
+            categories: ['1 бал', '2 бали', '3 бали', '4 бали', '5 балів']
+          }
+        };
+      
+        // Запускаємо графік стовпчиків 2
+        var columnChart2 = new ApexCharts(document.querySelector("#column-chart-2"), columnChartOptions2);
+        columnChart2.render();
+      </script>
+      </body>
+      </html>
